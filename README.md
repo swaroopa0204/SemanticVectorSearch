@@ -32,23 +32,14 @@ Leveraging **Weaviate** as a vector database for semantic search and **Hugging F
 
 ## Architecture Diagram
 
-+--------------------+     +----------------------+     +------------------------+
-|   User Query / API  | --> |   Vector Embeddings   | --> |  Weaviate Vector DB    |
-|                    |     |  (Hugging Face Models)|     |  (Semantic Search &    |
-|                    |     |                      |     |   Similarity Matching) |
-+--------------------+     +----------------------+     +------------------------+
-                                      |
-                                      v
-                      +--------------------------------+
-                      |   Contextual Prompt Construction |
-                      |       + Large Language Model    |
-                      |     (Hugging Face Text Generation) |
-                      +--------------------------------+
-                                      |
-                                      v
-                          +----------------------------+
-                          |      Answer Response        |
-                          |         (API Output)        |
-                          +----------------------------+
+User Query / API
+    ↓
+Vector Embeddings (Hugging Face Sentence Models)
+    ↓
+Weaviate Vector DB (Semantic Search & Similarity Matching)
+    ↓
+Contextual Prompt + LLM (Hugging Face Text Generation)
+    ↓
+Answer Response (API Output)
 
 
